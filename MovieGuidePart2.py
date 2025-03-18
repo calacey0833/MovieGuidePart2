@@ -2,7 +2,7 @@
 #CIS 261
 #Movie Guide Part 2
 
-file = 'Movies.txt'
+filename = 'Movies.txt'
 
 def write_movies(movies):
     with open(filename, 'w') as file:
@@ -23,7 +23,7 @@ def list_movies(movies):
         print()
         
 def add_movie(movies):
-    movie = input('Movie: ')
+    movie = input('Movie:')
     movies.append(movie)
     write_movies(movies)
     print(f'{movie} was added.')
@@ -34,4 +34,32 @@ def delete_movie(movies):
         print('Invalid movie number.')
     else:
         movie = movies.pop(index - 1)
-        print
+        print('f{movie} was deleted.')
+
+def display_menu():
+    print('The Movie List program\n')
+    print('COMMAND MENU')
+    print('list - List all movies')
+    print('add - Add a movie')
+    print('del - Delete a movie')
+    print('exit - Exit program\n')
+    
+def main():
+    display_menu()
+    movies = read_movies()
+    while True:
+        command = input('Command:')
+        if command.lower() == 'list':
+            list_movies(movies)
+        elif command.lower() == 'add':
+            add_movie(movies)
+        elif command.lower() == 'del':
+            delete_movie(movies)
+        elif command.lower() == 'exit':
+            print('Bye!')
+            break
+        else:
+            print(' Not a valid command, Pleas try again.')
+            
+if __name__ == '__main__':
+    main()

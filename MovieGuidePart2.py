@@ -1,8 +1,8 @@
-#Athena Caldwell
-#CIS 261
-#Movie Guide Part 2
+# Athena Caldwell
+# CIS 261
+# movie Guide Part 2
 
-FILENAME = 'Movies.txt'
+FILENAME = 'movies.txt'
 
 def write_movies(movies):
     with open(FILENAME, "w") as file:
@@ -15,7 +15,7 @@ def read_movies():
         for line in file:
             line = line.replace("\n", "")
             movies.append(line)
-        return movies
+    return movies
     
 def list_movies(movies):
     for i, movie in enumerate(movies, start=1):
@@ -35,7 +35,7 @@ def delete_movie(movies):
     else:
         movie = movies.pop(index - 1)
         write_movies(movies)
-        print("f{movie} was deleted.")
+        print("f{movie} was deleted.\n")
         
 def main():
     movie_list = ["Cat on a Tin Roof", "On the Waterfront", "Monty Python and the Holy Grail to the file"]
